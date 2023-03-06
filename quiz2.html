@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="cmastree"></div>
+    <div id="cmascount"></div>
+    <script>
+        let div1 = document.createElement('div');
+        let image = document.createElement('IMG');
+        image.setAttribute('src','cmast.avif');
+        image.setAttribute("width", "304");
+        image.setAttribute("height", "228");
+        image.setAttribute("alt", "Christmas Tree");
+        document.getElementById('cmastree').appendChild(image);
+
+        const today = new Date();
+        const daysB4cmas = new Date(today.getFullYear(), 11, 25); 
+        if (today.getMonth() === 11 && today.getDate() > 25) {
+            daysB4cmas.setFullYear(daysB4cmas.getFullYear() + 1);
+        }
+        const oneDay = 1000 * 60 * 60 * 24;
+        const daysLeft = Math.ceil((daysB4cmas.getTime() - today.getTime()) / oneDay);
+
+        const txt = '\nChristmas \n\nIn ' + daysLeft + ' days'
+        let div2 = document.createElement('div');
+        div2.innerText = txt;
+        div2.style.width = '280px';
+        div2.style.textAlign = 'center';
+        div2.style.fontWeight = 700;
+        div2.style.fontSize = '40px';
+        document.getElementById('cmascount').appendChild(div2);
+        
+
+    </script>
+</body>
+</html>
